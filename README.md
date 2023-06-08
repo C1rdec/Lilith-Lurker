@@ -1,6 +1,7 @@
 # Lilith Lurker <img src="./LilithLurker/Resources/Lilith.png" width="100" height="100" /> 
  
-Lilith Lurker is a simple yet very powerful overlay meant to ease the process of finding Altars of Lilith for Diablo4. 
+Lilith Lurker is a simple yet very powerful overlay meant to ease the process of finding Altars of Lilith in Diablo4. 
+<br/>
 <br/>
 <a href="https://github.com/C1rdec/Poe-Lurker/releases/latest/download/PoeLurkerSetup.exe" target="_blank"><img src="/LilithLurker/Resources/download-button.png" height="140" /></a>
 <br/>
