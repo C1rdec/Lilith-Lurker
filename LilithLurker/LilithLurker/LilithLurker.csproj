@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>disable</Nullable>
+	<ImplicitUsings>disable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\Lilith.ico" />
+    <None Remove="Resources\Lilith.png" />
+    <None Remove="Resources\map.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Caliburn.Micro" Version="4.0.212" />
+    <PackageReference Include="Hardcodet.NotifyIcon.Wpf" Version="1.1.0" />
+    <PackageReference Include="Lurker.Windows" Version="1.0.0" />
+    <PackageReference Include="ProcessLurker" Version="1.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Lilith.ico" />
+    <Resource Include="Resources\Lilith.png" />
+    <Resource Include="Resources\map.jpg" />
+  </ItemGroup>
+
+</Project>
