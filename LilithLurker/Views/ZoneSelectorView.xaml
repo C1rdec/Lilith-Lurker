@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="LilithLurker.Views.ZoneSelectorView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid Visibility="{Binding HasNoZoneSelected, Converter={StaticResource BooleanToVisibilityConverter}}">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Button x:Name="FracturedPeaks" FontFamily="/Resources/Exo.ttf" FontSize="30">Fractured Peaks</Button>
+            <Button x:Name="Scosglen" Grid.Row="1" FontSize="30">Scosglen</Button>
+            <Button x:Name="DrySteppes" Grid.Row="2" FontSize="30">Dry Steppes</Button>
+            <Button x:Name="Hawezar" Grid.Row="3" FontSize="30">Hawezar</Button>
+            <Button x:Name="Kehjistan" Grid.Row="4" FontSize="30">Kehjistan</Button>
+        </Grid>
+        <ContentControl x:Name="CurrentView" Visibility="{Binding HasZoneSelected, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+    </Grid>
+</UserControl>

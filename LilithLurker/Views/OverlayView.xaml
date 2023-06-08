@@ -6,9 +6,19 @@
         xmlns:local="clr-namespace:LilithLurker.Views"
         WindowStyle="None"
         AllowsTransparency="True"
+        ShowInTaskbar="False"
         Background="Transparent"
         Topmost="True"
         mc:Ignorable="d"
         Title="OverlayView" Height="450" Width="800">
-    <ContentControl x:Name="Selector" Grid.Row="1"></ContentControl>
+    <Grid>
+        <ContentControl x:Name="Selector" Grid.Row="1"></ContentControl>
+        <Button x:Name="Back" 
+                VerticalAlignment="Top" 
+                HorizontalAlignment="Right" 
+                Margin="0,8,8,0" 
+                Visibility="{Binding HasZoneSelected, Converter={StaticResource BooleanToVisibilityConverter}}">
+            <TextBlock Margin="4">Back</TextBlock>
+        </Button>
+    </Grid>
 </Window>

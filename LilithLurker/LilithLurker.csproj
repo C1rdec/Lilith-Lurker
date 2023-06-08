@@ -9,9 +9,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\DrySteppes.jpg" />
+    <None Remove="Resources\Exo.ttf" />
+    <None Remove="Resources\FracturedPeaks.jpg" />
+    <None Remove="Resources\Hawezar.jpg" />
+    <None Remove="Resources\Kehjistan.jpg" />
     <None Remove="Resources\Lilith.ico" />
     <None Remove="Resources\Lilith.png" />
-    <None Remove="Resources\map.jpg" />
+    <None Remove="Resources\Scosglen.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Exo.ttf" />
   </ItemGroup>
 
   <ItemGroup>
@@ -22,9 +31,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Resources\FracturedPeaks.jpg" />
+    <Resource Include="Resources\Hawezar.jpg" />
+    <Resource Include="Resources\Kehjistan.jpg" />
     <Resource Include="Resources\Lilith.ico" />
     <Resource Include="Resources\Lilith.png" />
-    <Resource Include="Resources\map.jpg" />
+    <Resource Include="Resources\DrySteppes.jpg" />
+    <Resource Include="Resources\Scosglen.jpg" />
   </ItemGroup>
 
 </Project>

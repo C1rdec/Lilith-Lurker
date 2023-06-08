@@ -12,6 +12,7 @@ public class OverlayViewModel : Screen, IDisposable, IViewAware
     private DockingHelper _dockingHelper;
     private double _scaleX = 1;
     private double _scaleY = 1;
+    private bool _hasZoneSelected;
 
     public OverlayViewModel(DockingHelper helper)
     {
@@ -19,24 +20,28 @@ public class OverlayViewModel : Screen, IDisposable, IViewAware
         helper.OnForegroundChange += Helper_OnForegroundChange;
         helper.OnWindowMove += Helper_OnWindowMove;
         Selector = new ZoneSelectorViewModel();
+        Selector.PropertyChanged += Selector_PropertyChanged;
     }
 
     public ZoneSelectorViewModel Selector { get; set; }
 
-    private void Helper_OnWindowMove(object sender, WindowInformation e)
+    public bool HasZoneSelected
     {
-        SetWindowPosition(e);
+        get => _hasZoneSelected;
+        set
+        {
+            _hasZoneSelected = value;
+            NotifyOfPropertyChange();
+        }
     }
+
+    public void Back()
+        => Selector.Back();
 
     public void Dispose()
     {
         _dockingHelper.OnForegroundChange -= Helper_OnForegroundChange;
         _dockingHelper.OnWindowMove -= Helper_OnWindowMove;
-    }
-
-    private void Helper_OnForegroundChange(object sender, bool e)
-    {
-        
     }
 
     protected override void OnViewLoaded(object view)
@@ -54,6 +59,16 @@ public class OverlayViewModel : Screen, IDisposable, IViewAware
         SetWindowPosition(_dockingHelper.WindowInformation);
     }
 
+    private void Helper_OnWindowMove(object sender, WindowInformation e)
+    {
+        SetWindowPosition(e);
+    }
+
+    private void Helper_OnForegroundChange(object sender, bool e)
+    {
+
+    }
+
     private void SetWindowPosition(WindowInformation windowInformation)
     {
         var width = 390 * windowInformation.Height / 1440;
@@ -67,6 +82,14 @@ public class OverlayViewModel : Screen, IDisposable, IViewAware
             _window.Left = ApplyScalingX(windowInformation.Position.Right - width - rigthMargin);
             _window.Top = ApplyScalingY(windowInformation.Position.Top + topMargin);
         });
+    }
+
+    private void Selector_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+    {
+        if (e.PropertyName ==  nameof(ZoneSelectorViewModel.CurrentView)) 
+        {
+            HasZoneSelected = Selector.HasZoneSelected;
+        }
     }
 
     private static double Scale(double value, double scale, bool absolute)
