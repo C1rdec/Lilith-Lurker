@@ -61,7 +61,8 @@ public class AppBootstrapper : BootstrapperBase
         // ViewModels
         _container.PerRequest<ShellViewModel, ShellViewModel>();
 
-        var startupService = new WindowsLink("LilithLurker.lnk", "Lilith Lurker");
+        var startupService = new WindowsLink("LilithLurker.lnk", "LilithLurker");
+        startupService.AddStartMenu();
         _container.Instance(startupService);
         _container.Instance(Application);
     }

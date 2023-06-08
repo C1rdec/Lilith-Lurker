@@ -6,9 +6,11 @@
     <Nullable>disable</Nullable>
 	<ImplicitUsings>disable</ImplicitUsings>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>Lilith.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Lilith.ico" />
     <None Remove="Resources\DrySteppes.jpg" />
     <None Remove="Resources\Exo.ttf" />
     <None Remove="Resources\FracturedPeaks.jpg" />
@@ -20,6 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="Lilith.ico" />
     <Resource Include="Resources\Exo.ttf" />
   </ItemGroup>
 

@@ -11,7 +11,7 @@
         Topmost="True"
         mc:Ignorable="d"
         Title="OverlayView" Height="450" Width="800">
-    <Grid>
+    <Grid Visibility="{Binding IsVisible, Converter={StaticResource BooleanToVisibilityConverter}}">
         <ContentControl x:Name="Selector" Grid.Row="1"></ContentControl>
         <Button x:Name="Back" 
                 Opacity="0.7"

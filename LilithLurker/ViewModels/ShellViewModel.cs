@@ -11,16 +11,19 @@ public class ShellViewModel : Conductor<IScreen>.Collection.AllActive
 
     private DockingHelper _dockingHelper;
     private OverlayViewModel _overlayViewModel;
+    private LilithViewModel _lilithViewModel;
     private ProcessService _processService;
     private IWindowManager _windowManager;
+    private IEventAggregator _eventAggregator;
 
     #endregion
 
     #region Constructors
 
-    public ShellViewModel(IWindowManager windowManager)
+    public ShellViewModel(IWindowManager windowManager, IEventAggregator eventAggregator)
     {
         _windowManager = windowManager;
+        _eventAggregator = eventAggregator;
 
         _ = WaitForDiablo();
     }
@@ -49,8 +52,11 @@ public class ShellViewModel : Conductor<IScreen>.Collection.AllActive
 
         Execute.OnUIThread(async () => 
         { 
-            _overlayViewModel = new OverlayViewModel(_dockingHelper);
+            _overlayViewModel = new OverlayViewModel(_dockingHelper, _eventAggregator);
             await _windowManager.ShowWindowAsync(_overlayViewModel);
+
+            _lilithViewModel = new LilithViewModel(_dockingHelper, _eventAggregator);
+            await _windowManager.ShowWindowAsync(_lilithViewModel);
         });
     }
 
@@ -63,6 +69,9 @@ public class ShellViewModel : Conductor<IScreen>.Collection.AllActive
         {
             _overlayViewModel.Dispose();
             await _overlayViewModel.TryCloseAsync();
+
+            _lilithViewModel.Dispose();
+            await _lilithViewModel.TryCloseAsync();
         }
 
         _ = WaitForDiablo();
