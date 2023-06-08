@@ -14,6 +14,8 @@
     <Grid>
         <ContentControl x:Name="Selector" Grid.Row="1"></ContentControl>
         <Button x:Name="Back" 
+                Opacity="0.7"
+                Cursor="Hand"
                 VerticalAlignment="Top" 
                 HorizontalAlignment="Right" 
                 Margin="0,8,8,0" 
