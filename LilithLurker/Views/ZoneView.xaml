@@ -5,8 +5,19 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d"
              xmlns:local="clr-namespace:LilithLurker.Controls"
+             xmlns:cal="http://www.caliburnproject.org"
              d:DesignHeight="450" d:DesignWidth="800">
-    <local:ZoomBorder>
-        <Image Source="{Binding Source}" Width="auto" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Stretch="Uniform"/>
-    </local:ZoomBorder>
+    <Grid>
+        <local:ZoomBorder>
+            <Image Source="{Binding Source}" Width="auto" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Stretch="Uniform"/>
+        </local:ZoomBorder>
+        <Image Height="30"
+               VerticalAlignment="Bottom"
+               Opacity="0.7"
+               Cursor="Hand"
+               cal:Message.Attach="[Event MouseDown] = [Action OpenPatreon]"
+               Source="https://user-images.githubusercontent.com/5436436/88303508-1a537980-ccd5-11ea-9e27-9139f994101a.png"
+               Visibility="{Binding ShowPatreon, Converter={StaticResource BooleanToVisibilityConverter}}"
+               Grid.Row="1"/>
+    </Grid>
 </UserControl>
