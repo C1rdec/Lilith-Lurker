@@ -38,6 +38,12 @@ public class ShellViewModel : Conductor<IScreen>.Collection.AllActive
             _overlayViewModel = null;
         }
 
+        if (_lilithViewModel != null )
+        {
+            await _lilithViewModel.TryCloseAsync();
+            _lilithViewModel = null;
+        }
+
         await TryCloseAsync();
     }
 
