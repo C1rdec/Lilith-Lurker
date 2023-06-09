@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System.Diagnostics;
+using System.Threading;
 using System.Threading.Tasks;
 using Caliburn.Micro;
 using LilithLurker.Helpers;
@@ -35,6 +36,16 @@ public class OverlayViewModel : ScreenViewModelBase, IHandle<LilithMessage>
 
     public void Back()
         => Selector.Back();
+
+    public void OpenPatreon()
+    {
+        var psi = new ProcessStartInfo
+        {
+            FileName = "https://www.patreon.com/poelurker",
+            UseShellExecute = true
+        };
+        Process.Start(psi);
+    }
 
     protected override void SetWindowPosition(WindowInformation windowInformation)
     {

@@ -13,15 +13,5 @@ namespace LilithLurker.ViewModels
         }
 
         public string Source => $"/Resources/{_name}.jpg";
-
-        public void OpenPatreon()
-        {
-            var psi = new ProcessStartInfo
-            {
-                FileName = "https://www.patreon.com/poelurker",
-                UseShellExecute = true
-            };
-            Process.Start(psi);
-        }
     }
 }
