@@ -19,12 +19,11 @@ namespace LilithLurker.Helpers
         private readonly uint _windowOwnerId;
         private readonly Native.WinEventDelegate _winEventDelegate;
 
-        private Process _myProcess;
-        private CancellationTokenSource _tokenSource;
-        private IntPtr _hook;
-        private IntPtr _windowHandle;
-        private WindowStyle _windowStyle;
-        private Process _process;
+        private readonly Process _myProcess;
+        private readonly CancellationTokenSource _tokenSource;
+        private readonly IntPtr _hook;
+        private readonly IntPtr _windowHandle;
+        private readonly Process _process;
         private bool _foreground;
 
         #endregion
@@ -95,11 +94,21 @@ namespace LilithLurker.Helpers
         #region Methods
 
         /// <summary>
+        /// Sets the foreground.
+        /// </summary>
+        /// <param name="handle">The handle.</param>
+        public static void SetForeground(IntPtr handle)
+        {
+            _ = Native.SetForegroundWindow(handle);
+        }
+
+        /// <summary>
         /// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
         /// </summary>
         public void Dispose()
         {
             Dispose(true);
+            GC.SuppressFinalize(this);
         }
 
         /// <summary>
@@ -108,15 +117,6 @@ namespace LilithLurker.Helpers
         public void SetForeground()
         {
             SetForeground(_windowHandle);
-        }
-
-        /// <summary>
-        /// Sets the foreground.
-        /// </summary>
-        /// <param name="handle">The handle.</param>
-        public void SetForeground(IntPtr handle)
-        {
-            Native.SetForegroundWindow(handle);
         }
 
         /// <summary>
@@ -183,7 +183,7 @@ namespace LilithLurker.Helpers
 
                         var inForeground = false;
                         var foregroundWindow = Native.GetForegroundWindow();
-                        Native.GetWindowThreadProcessId(foregroundWindow, out var processId);
+                        _ = Native.GetWindowThreadProcessId(foregroundWindow, out var processId);
 
                         var style = Native.GetWindowLong(_windowHandle, -16);
 

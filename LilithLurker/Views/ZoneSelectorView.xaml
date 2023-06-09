@@ -14,11 +14,11 @@
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
-            <Button x:Name="FracturedPeaks" FontFamily="/Resources/Exo.ttf" FontSize="30">Fractured Peaks</Button>
-            <Button x:Name="Scosglen" Grid.Row="1" FontSize="30">Scosglen</Button>
-            <Button x:Name="DrySteppes" Grid.Row="2" FontSize="30">Dry Steppes</Button>
-            <Button x:Name="Hawezar" Grid.Row="3" FontSize="30">Hawezar</Button>
-            <Button x:Name="Kehjistan" Grid.Row="4" FontSize="30">Kehjistan</Button>
+            <Button x:Name="FracturedPeaks" Style="{DynamicResource Zone}">Fractured Peaks</Button>
+            <Button x:Name="Scosglen" Grid.Row="1" Style="{DynamicResource Zone}" Margin="0,4,0,0">Scosglen</Button>
+            <Button x:Name="DrySteppes" Grid.Row="2" Style="{DynamicResource Zone}" Margin="0,4,0,0">Dry Steppes</Button>
+            <Button x:Name="Hawezar" Grid.Row="3" Style="{DynamicResource Zone}" Margin="0,4,0,0">Hawezar</Button>
+            <Button x:Name="Kehjistan" Grid.Row="4" Style="{DynamicResource Zone}" Margin="0,4,0,0">Kehjistan</Button>
         </Grid>
         <ContentControl x:Name="CurrentView" Visibility="{Binding HasZoneSelected, Converter={StaticResource BooleanToVisibilityConverter}}"/>
     </Grid>

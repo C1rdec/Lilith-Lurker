@@ -13,8 +13,8 @@ public class ShellViewModel : Conductor<IScreen>.Collection.AllActive
     private OverlayViewModel _overlayViewModel;
     private LilithViewModel _lilithViewModel;
     private ProcessService _processService;
-    private IWindowManager _windowManager;
-    private IEventAggregator _eventAggregator;
+    private readonly IWindowManager _windowManager;
+    private readonly IEventAggregator _eventAggregator;
 
     #endregion
 

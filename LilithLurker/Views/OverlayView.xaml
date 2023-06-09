@@ -13,14 +13,15 @@
         Title="OverlayView" Height="450" Width="800">
     <Grid Visibility="{Binding IsVisible, Converter={StaticResource BooleanToVisibilityConverter}}">
         <ContentControl x:Name="Selector" Grid.Row="1"></ContentControl>
-        <Button x:Name="Back" 
+        <Button x:Name="Back"
+                Style="{DynamicResource Zone}"
                 Opacity="0.7"
                 Cursor="Hand"
                 VerticalAlignment="Top" 
                 HorizontalAlignment="Right" 
                 Margin="0,8,8,0" 
                 Visibility="{Binding HasZoneSelected, Converter={StaticResource BooleanToVisibilityConverter}}">
-            <TextBlock Margin="4">Back</TextBlock>
+            <TextBlock FontSize="15">Back</TextBlock>
         </Button>
     </Grid>
 </Window>
