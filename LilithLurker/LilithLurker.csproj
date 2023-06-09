@@ -17,6 +17,8 @@
     <None Remove="Resources\Kehjistan.jpg" />
     <None Remove="Resources\Lilith.ico" />
     <None Remove="Resources\Lilith.png" />
+    <None Remove="Resources\LilithActive.png" />
+    <None Remove="Resources\LilithVerge.png" />
     <None Remove="Resources\Scosglen.jpg" />
   </ItemGroup>
 
@@ -35,8 +37,10 @@
     <Resource Include="Resources\FracturedPeaks.jpg" />
     <Resource Include="Resources\Hawezar.jpg" />
     <Resource Include="Resources\Kehjistan.jpg" />
-    <Resource Include="Resources\Lilith.ico" />
+    <Resource Include="Resources\LilithVerge.png" />
     <Resource Include="Resources\Lilith.png" />
+    <Resource Include="Resources\Lilith.ico" />
+    <Resource Include="Resources\LilithActive.png" />
     <Resource Include="Resources\DrySteppes.jpg" />
     <Resource Include="Resources\Scosglen.jpg" />
   </ItemGroup>

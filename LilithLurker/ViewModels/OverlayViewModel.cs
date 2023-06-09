@@ -41,7 +41,7 @@ public class OverlayViewModel : ScreenViewModelBase, IHandle<LilithMessage>
         var width = 390 * windowInformation.Height / 1440;
         var height = 560 * windowInformation.Height / 1440;
         var rigthMargin = 30 * windowInformation.Height / 1440;
-        var topMargin = 380 * windowInformation.Height / 1440;
+        var topMargin = 400 * windowInformation.Height / 1440;
         Execute.OnUIThread(() =>
         {
             Window.Height = ApplyAbsoluteScalingY(height);

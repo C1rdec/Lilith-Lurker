@@ -13,7 +13,32 @@
         Topmost="True"
         Visibility="{Binding IsVisible, Converter={StaticResource BooleanToVisibilityConverter}}"
         Title="LilithView" Height="450" Width="800">
-    <Border Cursor="Hand" cal:Message.Attach="[Event MouseUp] = [Action OnClick()]">
-        <Image Source="/Resources/Lilith.png"></Image>
-    </Border>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="50"/>
+        </Grid.ColumnDefinitions>
+        <Border CornerRadius="8" HorizontalAlignment="Center" Opacity="0.8" VerticalAlignment="Bottom" Grid.ColumnSpan="2" cal:Message.Attach="[Event MouseUp] = [Action OnTimerClick()]">
+            <Border.Style>
+                <Style TargetType="Border">
+                    <Setter Property="Background" Value="LightSlateGray"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding HelltideActive}" Value="true">
+                            <Setter Property="Background" Value="Crimson"/>
+                            <Setter Property="Cursor" Value="Hand"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Border.Style>
+            <TextBlock x:Name="Timer" 
+                       Visibility="{Binding Open, Converter={StaticResource BooleanToVisibilityConverter}}"
+                       VerticalAlignment="Center" 
+                       Margin="10,0,10,0"
+                       FontSize="30" 
+                       Foreground="White"/>
+        </Border>
+        <Border Cursor="Hand" cal:Message.Attach="[Event MouseUp] = [Action OnClick()]" Grid.Column="1" VerticalAlignment="Top">
+            <Image Source="{Binding Source}"></Image>
+        </Border>
+    </Grid>
 </Window>
