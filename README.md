@@ -5,4 +5,10 @@ Lilith Lurker is a simple yet very powerful overlay meant to ease the process of
 <br/>
 <a href="https://github.com/C1rdec/Lilith-Lurker/releases/latest/download/LilithLurker.zip" target="_blank"><img src="/LilithLurker/Resources/download-button.png" height="140" /></a>
 <br/>
+
+![2023-06-10_01-22-00](https://github.com/C1rdec/Lilith-Lurker/assets/5436436/b15d7f32-bb44-442e-88c3-accd9c350690)
+
+
+
+
 ![2023-06-08_13-56-14](https://github.com/C1rdec/Lilith-Lurker/assets/5436436/9d4b1188-35a2-4f5f-8a62-e586031ce538)
