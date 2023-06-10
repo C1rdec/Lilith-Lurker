@@ -86,15 +86,14 @@ public class LilithViewModel : ScreenViewModelBase
     protected override void SetWindowPosition(WindowInformation windowInformation)
     {
         var width = 390 * windowInformation.Height / 1440;
-        var height = 100 * windowInformation.Height / 1440;
-        var rigthMargin = 30 * windowInformation.Height / 1440;
-        var topMargin = 290 * windowInformation.Height / 1440;
+        var height = 50 * windowInformation.Height / 1440;
+        var margin = 4 * windowInformation.Height / 1440;
         Execute.OnUIThread(() =>
         {
             Window.Height = ApplyAbsoluteScalingY(height);
             Window.Width = ApplyAbsoluteScalingX(width);
-            Window.Left = ApplyScalingX(windowInformation.Position.Right - width - rigthMargin);
-            Window.Top = ApplyScalingY(windowInformation.Position.Top + topMargin);
+            Window.Left = ApplyScalingX(windowInformation.Position.Right - width - margin);
+            Window.Top = ApplyScalingY(windowInformation.Position.Bottom - height - margin);
         });
     }
 

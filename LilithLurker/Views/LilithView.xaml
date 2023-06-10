@@ -37,8 +37,19 @@
                        FontSize="30" 
                        Foreground="White"/>
         </Border>
-        <Border Cursor="Hand" cal:Message.Attach="[Event MouseUp] = [Action OnClick()]" Grid.Column="1" VerticalAlignment="Top">
-            <Image Source="{Binding Source}"></Image>
+            <Image Source="{Binding Source}" MaxHeight="35" VerticalAlignment="Bottom" Grid.Column="1" HorizontalAlignment="Right" Margin="0,0,2,2"></Image>
+        <Border Cursor="Hand" cal:Message.Attach="[Event MouseUp] = [Action OnClick()]" Grid.Column="1" CornerRadius="50,0,0,0">
+            <Border.Style>
+                <Style TargetType="Border">
+                    <Setter Property="Opacity" Value="0.002"/>
+                    <Setter Property="Background" Value="White"></Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Opacity" Value="0.05" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Border.Style>
         </Border>
     </Grid>
 </Window>
