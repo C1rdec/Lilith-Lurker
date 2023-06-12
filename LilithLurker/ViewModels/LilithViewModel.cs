@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Diagnostics;
+using System.Threading.Tasks;
 using System.Windows;
 using Caliburn.Micro;
 using LilithLurker.Helpers;
@@ -79,7 +80,12 @@ public class LilithViewModel : ScreenViewModelBase
     {
         if (HelltideActive)
         {
-
+            var psi = new ProcessStartInfo
+            {
+                FileName = "https://helltides.com/",
+                UseShellExecute = true
+            };
+            Process.Start(psi);
         }
     }
 
