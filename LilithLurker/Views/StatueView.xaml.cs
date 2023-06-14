@@ -16,24 +16,13 @@ using System.Windows.Shapes;
 namespace LilithLurker.Views
 {
     /// <summary>
-    /// Interaction logic for ZoneView.xaml
+    /// Interaction logic for StatueView.xaml
     /// </summary>
-    public partial class ZoneView : UserControl
+    public partial class StatueView : UserControl
     {
-        public ZoneView()
+        public StatueView()
         {
             InitializeComponent();
-        }
-
-        private void Image_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            var position = e.GetPosition(sender as Image);
-
-            position.X -= 5;
-            position.Y -= 5;
-
-            var text = $"new StatueViewModel{{ Position = new Position {{ Left = {position.X}, Top = {position.Y}, }}}},";
-            Clipboard.SetText(text);
         }
     }
 }

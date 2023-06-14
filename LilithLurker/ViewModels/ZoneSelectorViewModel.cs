@@ -1,59 +1,59 @@
 ﻿using Caliburn.Micro;
+using LilithLurker.Models;
 
-namespace LilithLurker.ViewModels
+namespace LilithLurker.ViewModels;
+
+public class ZoneSelectorViewModel : PropertyChangedBase
 {
-    public class ZoneSelectorViewModel : PropertyChangedBase
+    private PropertyChangedBase _currentView;
+
+    public ZoneSelectorViewModel()
     {
-        private PropertyChangedBase _currentView;
+    }
 
-        public ZoneSelectorViewModel()
+    public PropertyChangedBase CurrentView
+    {
+        get => _currentView;
+        set
         {
+            _currentView = value;
+            NotifyOfPropertyChange();
+            NotifyOfPropertyChange(() => HasZoneSelected);
+            NotifyOfPropertyChange(() => HasNoZoneSelected);
         }
+    }
 
-        public PropertyChangedBase CurrentView
-        {
-            get => _currentView;
-            set
-            {
-                _currentView = value;
-                NotifyOfPropertyChange();
-                NotifyOfPropertyChange(() => HasZoneSelected);
-                NotifyOfPropertyChange(() => HasNoZoneSelected);
-            }
-        }
+    public bool HasZoneSelected => CurrentView != null;
 
-        public bool HasZoneSelected => CurrentView != null;
+    public bool HasNoZoneSelected => !HasZoneSelected;
 
-        public bool HasNoZoneSelected => !HasZoneSelected;
+    public void Back()
+    {
+        CurrentView = null;
+    }
 
-        public void Back()
-        {
-            CurrentView = null;
-        }
+    public void DrySteppes()
+    {
+        CurrentView = new ZoneViewModel(ZoneType.DrySteppes);
+    }
 
-        public void DrySteppes()
-        {
-            CurrentView = new ZoneViewModel("DrySteppes");
-        }
+    public void FracturedPeaks()
+    {
+        CurrentView = new ZoneViewModel(ZoneType.FracturedPeaks);
+    }
 
-        public void FracturedPeaks()
-        {
-            CurrentView = new ZoneViewModel("FracturedPeaks");
-        }
+    public void Scosglen()
+    {
+        CurrentView = new ZoneViewModel(ZoneType.Scosglen);
+    }
 
-        public void Scosglen()
-        {
-            CurrentView = new ZoneViewModel("Scosglen");
-        }
+    public void Hawezar()
+    {
+        CurrentView = new ZoneViewModel(ZoneType.Hawezar);
+    }
 
-        public void Hawezar()
-        {
-            CurrentView = new ZoneViewModel("Hawezar");
-        }
-
-        public void Kehjistan()
-        {
-            CurrentView = new ZoneViewModel("Kehjistan");
-        }
+    public void Kehjistan()
+    {
+        CurrentView = new ZoneViewModel(ZoneType.Kehjistan);
     }
 }

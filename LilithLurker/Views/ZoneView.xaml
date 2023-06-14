@@ -9,7 +9,21 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <local:ZoomBorder>
-            <Image Source="{Binding Source}" Width="auto" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Stretch="Uniform"/>
+            <Grid>
+                <Image Source="{Binding Source}" Width="auto" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Stretch="Uniform"/>
+                <ItemsControl ItemsSource="{Binding Path=Statues}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <Grid></Grid>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <ContentControl cal:View.Model="{Binding . ,Mode=OneWay}"/>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </Grid>
         </local:ZoomBorder>
     </Grid>
 </UserControl>
