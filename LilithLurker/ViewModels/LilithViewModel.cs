@@ -14,15 +14,12 @@ public class LilithViewModel : ScreenViewModelBase
     private HelltideStatus _helltideStatus;
     private string _source;
     private string _timer;
-    private bool _open;
     private bool _helltideActive;
 
     public LilithViewModel(DockingHelper helper, IEventAggregator eventAggregator)
         : base(helper)
     {
         _eventAggregator = eventAggregator;
-        
-        IsVisible = true;
         WatchHelltide();
     }
 
@@ -32,16 +29,6 @@ public class LilithViewModel : ScreenViewModelBase
         set
         {
             _timer = value;
-            NotifyOfPropertyChange();
-        }
-    }
-
-    public bool Open
-    {
-        get => _open;
-        set
-        {
-            _open = value;
             NotifyOfPropertyChange();
         }
     }
@@ -72,7 +59,6 @@ public class LilithViewModel : ScreenViewModelBase
 
     public void OnClick()
     {
-        Open = !Open;
         _eventAggregator.PublishOnCurrentThreadAsync(new LilithMessage());
     }
 
@@ -93,13 +79,12 @@ public class LilithViewModel : ScreenViewModelBase
     {
         var width = 390 * windowInformation.Height / 1440;
         var height = 50 * windowInformation.Height / 1440;
-        var margin = 4 * windowInformation.Height / 1440;
         Execute.OnUIThread(() =>
         {
             Window.Height = ApplyAbsoluteScalingY(height);
             Window.Width = ApplyAbsoluteScalingX(width);
-            Window.Left = ApplyScalingX(windowInformation.Position.Right - width - margin);
-            Window.Top = ApplyScalingY(windowInformation.Position.Bottom - height - margin);
+            Window.Left = ApplyScalingX(windowInformation.Position.Right - width);
+            Window.Top = ApplyScalingY(windowInformation.Position.Bottom - height);
         });
     }
 

@@ -11,7 +11,6 @@
         Background="Transparent"
         xmlns:cal="http://www.caliburnproject.org"
         Topmost="True"
-        Visibility="{Binding IsVisible, Converter={StaticResource BooleanToVisibilityConverter}}"
         Title="LilithView" Height="450" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
@@ -27,18 +26,23 @@
                             <Setter Property="Background" Value="Crimson"/>
                             <Setter Property="Cursor" Value="Hand"/>
                         </DataTrigger>
+                        <DataTrigger Binding="{Binding ElementName=Icon, Path=IsMouseOver}" Value="True">
+                            <Setter Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding ElementName=Icon, Path=IsMouseOver}" Value="False">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                        </DataTrigger>
                     </Style.Triggers>
                 </Style>
             </Border.Style>
-            <TextBlock x:Name="Timer" 
-                       Visibility="{Binding Open, Converter={StaticResource BooleanToVisibilityConverter}}"
+            <TextBlock x:Name="Timer"
                        VerticalAlignment="Center" 
                        Margin="10,0,10,0"
                        FontSize="30" 
                        Foreground="White"/>
         </Border>
-            <Image Source="{Binding Source}" MaxHeight="35" VerticalAlignment="Bottom" Grid.Column="1" HorizontalAlignment="Right" Margin="0,0,2,2"></Image>
-        <Border Cursor="Hand" cal:Message.Attach="[Event MouseUp] = [Action OnClick()]" Grid.Column="1" CornerRadius="50,0,0,0">
+        <Image Source="{Binding Source}" MaxHeight="35" VerticalAlignment="Bottom" Grid.Column="1" HorizontalAlignment="Right" Margin="0,0,2,2"></Image>
+        <Border x:Name="Icon" Cursor="Hand" cal:Message.Attach="[Event MouseUp] = [Action OnClick()]" Grid.Column="1" CornerRadius="50,0,0,0">
             <Border.Style>
                 <Style TargetType="Border">
                     <Setter Property="Opacity" Value="0.002"/>
