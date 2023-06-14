@@ -10,11 +10,10 @@ public class ZoneViewModel : PropertyChangedBase
     private ZoneType _zone;
     private ProgressionService _service;
 
-    public ZoneViewModel(ZoneType zone)
+    public ZoneViewModel(ZoneType zone, ProgressionService service)
     {
         _zone = zone;
-        _service = new ProgressionService();
-        _service.Initialize();
+        _service = service;
 
         Statues = new List<StatueViewModel>();
 

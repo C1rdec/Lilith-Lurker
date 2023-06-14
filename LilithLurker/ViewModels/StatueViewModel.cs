@@ -22,7 +22,7 @@ public class StatueViewModel : PropertyChangedBase
     public void OnClick()
     {
         _statue.Acquired = !_statue.Acquired;
-        _progressionService.Save(false);
+        _progressionService.Save(true);
 
         NotifyOfPropertyChange(() => Border);
     }

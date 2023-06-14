@@ -16,7 +16,6 @@
                 <Setter Property="Background" Value="Gray"/>
                 <Setter Property="Cursor" Value="Hand"/>
                 <Setter Property="FontSize" Value="35"></Setter>
-                <Setter Property="FontSize" Value="35"></Setter>
                 <Setter Property="Foreground" Value="White"></Setter>
                 <Setter Property="Template">
                     <Setter.Value>
@@ -41,6 +40,15 @@
                         </ControlTemplate>
                     </Setter.Value>
                 </Setter>
+            </Style>
+            <Style x:Key="Completion"
+                   BasedOn="{StaticResource {x:Type TextBlock}}"
+                   TargetType="{x:Type TextBlock}">
+                <Setter Property="Margin" Value="0,0,10,5"></Setter>
+                <Setter Property="FontSize" Value="23"></Setter>
+                <Setter Property="Foreground" Value="#c7c7c7"></Setter>
+                <Setter Property="HorizontalAlignment" Value="Right"></Setter>
+                <Setter Property="VerticalAlignment" Value="Bottom"></Setter>
             </Style>
         </ResourceDictionary>
     </Application.Resources>

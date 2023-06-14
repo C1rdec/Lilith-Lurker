@@ -15,10 +15,19 @@
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
             <Button x:Name="FracturedPeaks" Style="{DynamicResource Zone}">Fractured Peaks</Button>
-            <Button x:Name="Scosglen" Grid.Row="1" Style="{DynamicResource Zone}" Margin="0,4,0,0">Scosglen</Button>
-            <Button x:Name="DrySteppes" Grid.Row="2" Style="{DynamicResource Zone}" Margin="0,4,0,0">Dry Steppes</Button>
-            <Button x:Name="Hawezar" Grid.Row="3" Style="{DynamicResource Zone}" Margin="0,4,0,0">Hawezar</Button>
-            <Button x:Name="Kehjistan" Grid.Row="4" Style="{DynamicResource Zone}" Margin="0,4,0,0">Kehjistan</Button>
+            <TextBlock x:Name="FracturedPeaksCompletion" Style="{DynamicResource Completion}"/>
+
+            <Button x:Name="DrySteppes" Grid.Row="1" Style="{DynamicResource Zone}" Margin="0,4,0,0">Dry Steppes</Button>
+            <TextBlock x:Name="DrySteppesCompletion" Grid.Row="1" Style="{DynamicResource Completion}"/>
+
+            <Button x:Name="Hawezar" Grid.Row="2" Style="{DynamicResource Zone}" Margin="0,4,0,0">Hawezar</Button>
+            <TextBlock x:Name="HawezarCompletion" Grid.Row="2" Style="{DynamicResource Completion}"/>
+
+            <Button x:Name="Kehjistan" Grid.Row="3" Style="{DynamicResource Zone}" Margin="0,4,0,0">Kehjistan</Button>
+            <TextBlock x:Name="KehjistanCompletion" Grid.Row="3" Style="{DynamicResource Completion}"/>
+
+            <Button x:Name="Scosglen" Grid.Row="4" Style="{DynamicResource Zone}" Margin="0,4,0,0">Scosglen</Button>
+            <TextBlock x:Name="ScosglenCompletion" Grid.Row="4" Style="{DynamicResource Completion}"/>
         </Grid>
         <ContentControl x:Name="CurrentView" Visibility="{Binding HasZoneSelected, Converter={StaticResource BooleanToVisibilityConverter}}"/>
     </Grid>
