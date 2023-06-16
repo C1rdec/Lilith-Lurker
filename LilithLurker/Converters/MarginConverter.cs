@@ -16,9 +16,13 @@ namespace LilithLurker.Converters
 
             var scaleX = source.CompositionTarget.TransformToDevice.M11;
             var scaleY = source.CompositionTarget.TransformToDevice.M22;
+
             if (value is Position position)
             {
-                return new Thickness(position.Left / scaleX, position.Top / scaleY, 0, 0);
+                var left = (position.Left / scaleX) - 5;
+                var top = (position.Top / scaleY) - 5;
+
+                return new Thickness(left, top, 0, 0);
             }
 
             return null;
