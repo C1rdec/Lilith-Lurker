@@ -90,17 +90,13 @@ public class LilithViewModel : ScreenViewModelBase
 
     private string GetSource()
     {
-        switch(_helltideStatus.State)
+        return _helltideStatus.State switch
         {
-            case HelltideState.Active:
-                return "/Resources/LilithActive.png";
-            case HelltideState.Over:
-                return "/Resources/Lilith.png";
-            case HelltideState.Verge:
-                return "/Resources/LilithVerge.png";
-        }
-
-        return "/Resources/Lilith.png";
+            HelltideState.Active => "/Resources/LilithActive.png",
+            HelltideState.Over => "/Resources/Lilith.png",
+            HelltideState.Verge => "/Resources/LilithVerge.png",
+            _ => "/Resources/Lilith.png",
+        };
     }
 
     private async void WatchHelltide()

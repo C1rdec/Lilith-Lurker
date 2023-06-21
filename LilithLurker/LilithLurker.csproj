@@ -7,6 +7,7 @@
 	<ImplicitUsings>disable</ImplicitUsings>
     <UseWPF>true</UseWPF>
     <ApplicationIcon>Lilith.ico</ApplicationIcon>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
 
   <ItemGroup>
